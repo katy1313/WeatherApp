@@ -1,17 +1,90 @@
 body {
     background-color: #95D6EA;
+    margin: auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
 }
 
 header {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 999;
+    z-index: 999; */
     background-color: #15719f;
-    padding: 1em 0;
 }
 
-h1 {
-     color: white;
+h3 {
+     background-color: white;
+     color:#0435a8;
 }
+
+#logo {
+    margin: 0.5em 0 0.5em 0.5em;
+    background-color: white;
+    width: fit-content;
+    padding: 0.1em;
+}
+
+nav, .forecast_days ul {
+    list-style: none;
+    padding: 0.5em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #1487c1;
+    color: white;
+}
+
+.city, .units {
+    padding: 0.5em 1em;
+    background-color: #21a7ea;
+    border-radius: 4px;
+}
+
+.forecast_days ul{
+    background-color: #21a7ea;
+    text-decoration: none;
+    
+}
+
+.forecast_days a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+}
+
+.forecast_days a:hover, .forecast_days a:active {
+    text-decoration: none;
+    color: blue;
+    font-weight: 400;
+}
+
+.container, #hourly {
+    color: rgb(255, 255, 255);
+    margin: 1em 6em;
+    padding: 5em;
+}
+
+.container p{
+    color: rgb(249, 196, 4);
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.grid {
+    color: blue;
+    font-size: 2rem;
+}
+
+button {
+    height: 2.5em;
+    width: 4em;
+}
+
+.c_unit:active, .c_unit:hover, .f_unit:active, .f_unit:hover{
+    background-color: rgb(157, 189, 239);
+    border: none;
+}
+

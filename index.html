@@ -7,18 +7,43 @@
         <meta name="author" content="Katya Suhr" />
         <meta name="description" content="Weather app project" />
         <link href="css/index.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
             <div>
-                <h1>WEATHER APP</h1>
+                <div id="logo">
+                    <h3>Meteo<br>Forecast</h3>
+                </div>
+                
                 <nav>
-
+                    <div class="city"></div>
+                    <div class="units">
+                        <button type="button" class="c_unit">Cº</button>
+                        <button type="button" class="f_unit">F</button>
+                    </div> 
                 </nav>
+                <div class="forecast_days">
+                    <ul> 
+                        <li><a href="#today">Today</a></li>
+                        <li><a href="#hourly">Hourly</a></li>
+                        <li><a href="#7days">7 days</a></li>
+                    </ul>
+                </div>
             </div>
         </header>
         <main>
-            <div></div>
+            <section id="today">
+                <div class="container" style="background-image: url('./imagesAndIcons/clouds-3488632_1280.jpg');">
+                    <h2>Right now</h2>
+                    <p></p>
+                </div>
+            </section>
+            <section id="hourly">
+                <h2>Hourly temperature</h2>
+                <div class="grid"></div>
+            </section>
+            <div id="7days"></div>
         </main>
         <footer>
             <div></div>
