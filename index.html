@@ -14,8 +14,7 @@
             <div>
                 <div id="logo">
                     <h3>Meteo<br>Forecast</h3>
-                </div>
-                
+                </div>              
                 <nav>
                     <div class="city"></div>
                     <div class="units">
@@ -34,9 +33,12 @@
         </header>
         <main>
             <section id="today">
-                <div class="container" style="background-image: url('./imagesAndIcons/clouds-3488632_1280.jpg');">
-                    <h2>Right now</h2>
-                    <p></p>
+                <div class="container" style="background-image: url('./imagesAndIcons/clouds-3488632_1280.jpg'); opacity: 0.5; z-index: -1;">
+                    <h2>Right now</h2><br>
+                    <ul>
+                        <li class="temperature"></li>
+                        <li class="humidity"></li>
+                    </ul>
                 </div>
             </section>
             <section id="hourly">
