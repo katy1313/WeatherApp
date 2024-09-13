@@ -8,11 +8,11 @@ body {
 }
 
 header {
-    /* position: fixed;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 999; */
+    z-index: 999;
     background-color: #15719f;
 }
 
@@ -27,31 +27,42 @@ h2 {
 }
 
 #logo {
-    margin: 0.5em 0 0.5em 0.5em;
+    margin: 0.5em 0 0 1.5em;
     background-color: white;
     width: fit-content;
     padding: 0.1em;
+    margin-right: auto;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-nav, .forecast_days ul {
+.city {
+    margin-right: 6em;
+    align-content: center;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.units {
+    align-content: center;
+    margin-right: 2em;
+}
+
+.forecast_days ul {
     list-style: none;
     padding: 0.5em 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #1487c1;
     color: white;
+    background-color: #21a7ea;
+    text-decoration: none; 
 }
 
-.city, .units {
-    padding: 0.5em 1em;
-    background-color: #21a7ea;
-    border-radius: 4px;
-}
-
-.forecast_days ul{
-    background-color: #21a7ea;
-    text-decoration: none;  
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
 }
 
 .forecast_days a {
@@ -67,18 +78,31 @@ nav, .forecast_days ul {
 }
 
 /* Today section */
+#today {
+    position: relative;
+}
 .container {
     border-radius: 7px;
     height: 30em;
+    opacity: 0.3;
 }
 
-.container, #hourly {
+#today, #hourly {
     color: rgb(255, 255, 255);
-    margin: 1em 6em;
-    padding: 5em;
+    margin: 2em 6em;
+    padding: 5em;   
 }
 
-.container ul {
+#today h2 {
+    position: absolute;
+    top: 3em;
+    left: 2em;
+}
+
+#today ul {
+    position: absolute;
+    top: 16em;
+    left: 4em;
     list-style: none;
 }
 
@@ -86,14 +110,13 @@ nav, .forecast_days ul {
     color: rgb(249, 196, 4);
     font-size: 4rem;
     font-weight: 700;
-    text-shadow: 2px 4px rgb(162, 125, 32);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .humidity {
-    color: rgb(118, 4, 249);
+    color: rgb(211, 180, 246);
     font-size: 2rem;
     font-weight: 400;
-    text-shadow: 2px 1px rgb(53, 1, 112);
 }
 
 .grid {
@@ -104,8 +127,8 @@ nav, .forecast_days ul {
 .grid ul {
     display: grid;
     grid-template-columns: 1fr; /* Single column */
-    grid-auto-rows: minmax(70px, auto); /* Define the height for rows */
-    gap: 10px; /* Add some gap between rows */
+    grid-auto-rows: minmax(70px, auto); 
+    gap: 10px; 
 }
 
 .grid li {
@@ -118,6 +141,7 @@ nav, .forecast_days ul {
     letter-spacing: 1px;
     width: 30%;
     list-style: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 button {
@@ -125,6 +149,7 @@ button {
     width: 4em;
     border-radius: 5px;
     border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .c_unit:active, .c_unit:hover, .f_unit:active, .f_unit:hover{
