@@ -1,5 +1,10 @@
 body {
     background-color: #95D6EA;
+    background-image: linear-gradient(#001057, rgb(128, 220, 254));
+    margin: auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
 }
 
 header {
@@ -9,9 +14,146 @@ header {
     left: 0;
     z-index: 999;
     background-color: #15719f;
-    padding: 1em 0;
 }
 
-h1 {
-     color: white;
+h3 {
+     background-color: white;
+     color:#0435a8;
 }
+
+h2 {
+    font-size: 3rem;
+    text-align: left;
+}
+
+#logo {
+    margin: 0.5em 0 0 1.5em;
+    background-color: white;
+    width: fit-content;
+    padding: 0.1em;
+    margin-right: auto;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.city {
+    margin-right: 6em;
+    align-content: center;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.units {
+    align-content: center;
+    margin-right: 2em;
+}
+
+.forecast_days ul {
+    list-style: none;
+    padding: 0.5em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+    background-color: #21a7ea;
+    text-decoration: none; 
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+}
+
+.forecast_days a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+}
+
+.forecast_days a:hover, .forecast_days a:active {
+    text-decoration: none;
+    color: blue;
+    font-weight: 400;
+}
+
+/* Today section */
+#today {
+    position: relative;
+}
+.container {
+    border-radius: 7px;
+    height: 30em;
+    opacity: 0.3;
+}
+
+#today, #hourly, #weekly {
+    color: rgb(255, 255, 255);
+    margin: 2em 6em;
+    padding: 5em;   
+}
+
+#today h2 {
+    position: absolute;
+    top: 3em;
+    left: 2em;
+}
+
+#today ul {
+    position: absolute;
+    top: 16em;
+    left: 4em;
+    list-style: none;
+}
+
+.temperature {
+    color: rgb(249, 196, 4);
+    font-size: 4rem;
+    font-weight: 700;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.humidity {
+    color: rgb(211, 180, 246);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.grid {
+    color: blue;
+    font-size: 2rem;
+}
+
+.grid ul {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column */
+    grid-auto-rows: minmax(70px, auto); 
+    gap: 10px; 
+}
+
+.grid li {
+    background-color: rgb(16, 145, 225);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffeead;
+    font-weight: 800;
+    letter-spacing: 1px;
+    width: 30%;
+    list-style: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button {
+    height: 2em;
+    width: 4em;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.c_unit:active, .c_unit:hover, .f_unit:active, .f_unit:hover{
+    background-color: rgb(157, 189, 239);
+    border: none;
+}
+
