@@ -87,7 +87,7 @@ h2 {
     opacity: 0.3;
 }
 
-#today, #hourly {
+#today, #hourly, #weekly {
     color: rgb(255, 255, 255);
     margin: 2em 6em;
     padding: 5em;   
