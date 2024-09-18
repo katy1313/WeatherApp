@@ -48,25 +48,9 @@ for(btn of btns) {
                 } else {
                     console.log(report);
                 } 
-                //const list = document.querySelector("#hourly > div > ul"); // The old list
-                const hourlyTemp = document.querySelector('.grid'); 
-                const hourlyTempListC = document.createElement('ul'); // The new list
 
-                for (let i = 0; i < report.hourly.time.length; i++) {    
-                    const tempListItem = document.createElement('li');
-                    hourlyTempListC.appendChild(tempListItem);
-                    
-                    const temp = report.hourly.temperature_2m[i];
-                    let time = report.hourly.time[i];
-                    let d = new Date(time);
-                    let hours = d.getUTCHours();
-                    let minutes = d.getUTCMinutes();
-                    
-                    let formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`; 
-                    tempListItem.innerHTML = `${formattedTime} ${temp}ºC`;
-}
-                hourlyTemp.innerHTML = ''; // Removes all old list items
-                hourlyTemp.appendChild(hourlyTempListC);
+                getDefaultHourlyTemp('celsius');
+                getDailyForecast('celsius');
             })
             .catch(error => {
                 console.log(error);
@@ -118,7 +102,8 @@ for(btn of btns) {
                     console.log(report);
                 } 
         
-                getDefaultHourlyTemp();
+                getDefaultHourlyTemp('fahrenheit');
+                getDailyForecast('fahrenheit');
             })
             .catch(error => {
                 console.log(error);
@@ -158,39 +143,56 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909
         todayHumidity.innerHTML = "humidity " + report.current.relative_humidity_2m + " " + report.current_units.relative_humidity_2m;
         todayTemp.append(todayHumidity);
 
-        getDefaultHourlyTemp();
-
-        //Displaying default hourly temperature and time
+        getDefaultHourlyTemp('fahrenheit');
+        getDailyForecast('fahrenheit');
         
     })
     .catch(error => {
         console.log(error);
     })     
 
-//Displaying 7 day forecast
-
-fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&temperature_unit=fahrenheit&timezone=America%2FNew_York&models=gfs_seamless")
-.then(response => {
-    if(!response.ok) {
-        throw new Error("Not Found");
-    }
-    return response.json();
-})
-.then(report => {
-    if(report.length === 0) {
-        throw new Error("No report exist");
-    } else {
-        console.log(report);
-    }
-    
-})
-.catch(error => {
-    console.log(error);
-})
-
 // Functions
+
+function getDailyForecast(unit) {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&temperature_unit=${unit}&timezone=America%2FNew_York&models=gfs_seamless`)
+    .then(response => {
+        if(!response.ok) {
+            throw new Error("Not Found");
+        }
+        return response.json();
+    })
+    .then(report => {
+        if(report.length === 0) {
+            throw new Error("No report exist");
+        } else {
+            console.log(report);
+        }
+        const dailyTemp = document.querySelector('.grid_daily'); 
+        const dailyTempListC = document.createElement('ul'); // The new list
+
+                    for (let i = 0; i < report.daily.time.length; i++) {    
+                        const tempListItem = document.createElement('li');
+                        dailyTempListC.appendChild(tempListItem);
+                        
+                        const tempMax = report.daily.temperature_2m_max[i];
+                        const tempMin = report.daily.temperature_2m_min[i];
+                        const precipitation = report.daily.precipitation_sum[i];
+                        const time = report.daily.time[i];
+                        const date = new Date(time);
+                        const formattedDate = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+                        tempListItem.innerHTML = `<div class="date">${formattedDate}</div> <div class="temp">${tempMin}${unit === 'celsius' ? 'C' : 'F'} / ${tempMax}${unit === 'celsius' ? 'C' : 'F'}</div> <div class="precipitation">precipitation ${precipitation}mm</div>`;
+                    }
+                    dailyTemp.innerHTML = ''; // Removes all old list items
+                    dailyTemp.appendChild(dailyTempListC);
+        
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
 function getDefaultHourlyTemp(unit) {
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&hourly=temperature_2m&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=1&models=gfs_seamless")
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&hourly=temperature_2m&temperature_unit=${unit}&timezone=America%2FNew_York&forecast_days=1&models=gfs_seamless`)
     .then(response => {
         if(!response.ok) {
             throw new Error("Not Found");
@@ -217,17 +219,16 @@ function getDefaultHourlyTemp(unit) {
         let hours = d.getUTCHours();
         let minutes = d.getUTCMinutes();
         let formattedTime = `${hours.toString().padStart(2, 0)}:${minutes.toString().padStart(2, 0)}`; 
-        tempListItem.innerHTML = `${formattedTime} ${temp}ºF`;
+        tempListItem.innerHTML = `${formattedTime} ${temp}${unit === 'celsius' ? 'C' : 'F'}`;
     }
 
     hourlyTemp.innerHTML = '';
     hourlyTemp.appendChild(hourlyTempList);
 
-})
-    .catch(error => {
-    console.log(error);
-})
-    
+    })
+        .catch(error => {
+        console.log(error);
+    })    
 }
 
 
