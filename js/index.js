@@ -1,3 +1,13 @@
+const footer = document.querySelector('footer');
+const dailyTemp = document.querySelector('.grid_daily');  
+
+const copyright = document.querySelector('.footer');
+const today = new Date();
+const thisYear = today.getFullYear();
+
+copyright.innerHTML = `\u00A9 Ekaterina Suhr  ${thisYear}`;
+footer.appendChild(copyright);
+
 //Switching between units
 
 let btns = document.querySelectorAll('button');
@@ -26,7 +36,7 @@ for(btn of btns) {
                 const todayTemp = document.querySelector('.temperature');
                 const todayHumidity = document.querySelector('.humidity');
                 todayTemp.innerHTML = report.current.temperature_2m + " " + report.current_units.temperature_2m;
-                todayHumidity.innerHTML = "humidity" + report.current.relative_humidity_2m + report.current_units.relative_humidity_2m;
+                todayHumidity.innerHTML = "humidity " + report.current.relative_humidity_2m + report.current_units.relative_humidity_2m;
                 todayTemp.append(todayHumidity);
                 
             })
@@ -80,7 +90,7 @@ for(btn of btns) {
                 const todayTemp = document.querySelector('.temperature');
                 const todayHumidity = document.querySelector('.humidity');
                 todayTemp.innerHTML = report.current.temperature_2m + " " + report.current_units.temperature_2m;
-                todayHumidity.innerHTML = "humidity" + report.current.relative_humidity_2m + report.current_units.relative_humidity_2m;
+                todayHumidity.innerHTML = "humidity " + report.current.relative_humidity_2m + report.current_units.relative_humidity_2m;
                 todayTemp.append(todayHumidity);
             })
             .catch(error => {
@@ -112,7 +122,7 @@ for(btn of btns) {
     }  
 }
 
-// Displaying city, default current temp and the hourly temperature in Fahrenheit
+// Displaying default current temp and the hourly temperature in Fahrenheit
 
 fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&current=temperature_2m,relative_humidity_2m,is_day,precipitation&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=1&models=gfs_seamless")
     .then(response => {
@@ -127,10 +137,6 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909
         } else {
             console.log(report);
         } 
-
-        //Displaying reports
-        const city = document.querySelector('.city');
-        city.innerHTML = report.timezone;
         
         //Displaying units on the button (default)
         const units = document.querySelector('.f_unit');
@@ -207,8 +213,7 @@ function getDefaultHourlyTemp(unit) {
         } 
 
     const hourlyTemp = document.querySelector('.grid');
-    const hourlyTempList = document.createElement('ul');
-    
+    const hourlyTempList = document.createElement('ul'); 
 
     for (let i=0; i < report.hourly.time.length; i++) {    
         const tempListItem = document.createElement('li');
@@ -230,6 +235,8 @@ function getDefaultHourlyTemp(unit) {
         console.log(error);
     })    
 }
+
+
 
 
 

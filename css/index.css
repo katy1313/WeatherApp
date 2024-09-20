@@ -1,9 +1,11 @@
+/* Mobile style */
+
 body {
     background-color: #95D6EA;
     background-image: linear-gradient(#001057, rgb(128, 220, 254));
     margin: auto;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -14,6 +16,8 @@ header {
     left: 0;
     z-index: 999;
     background-color: #15719f;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
 }
 
 h3 {
@@ -22,47 +26,49 @@ h3 {
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-align: left;
 }
 
 #logo {
-    margin: 0.5em 0 0 1.5em;
+    margin: 0.5em 0 0 .5em;
     background-color: white;
     width: fit-content;
     padding: 0.1em;
     margin-right: auto;
+    font-size: 0.6rem;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .city {
-    margin-right: 6em;
+    margin-right: 3em;
     align-content: center;
-    font-size: 2rem;
+    font-size: 1rem;
     color: white;
     letter-spacing: 1px;
 }
 
 .units {
     align-content: center;
-    margin-right: 2em;
+    margin-right: 1em;
 }
 
 .forecast_days ul {
     list-style: none;
-    padding: 0.5em 0;
+    padding: 0.3em 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     color: white;
     background-color: #21a7ea;
     text-decoration: none; 
+    margin: 0.2em 0 0;
 }
 
 .flex {
     display: flex;
     flex-direction: row;
-    justify-content:end;
+    justify-content: end;
 }
 
 .forecast_days a {
@@ -83,14 +89,21 @@ h2 {
 }
 .container {
     border-radius: 7px;
-    height: 30em;
+    height: 25em;
     opacity: 0.3;
 }
 
 #today, #hourly, #weekly {
     color: rgb(255, 255, 255);
-    margin: 2em 6em;
-    padding: 5em;   
+    margin: 2em 3em;
+}
+
+#hourly, #weekly {
+    padding: 3em 0;
+}
+
+#hourly h2, #weekly h2 {
+    padding-top: 1.5em;
 }
 
 #today h2 {
@@ -101,21 +114,23 @@ h2 {
 
 #today ul {
     position: absolute;
-    top: 16em;
-    left: 4em;
+    top: 8em;
+    left: 1em;
     list-style: none;
 }
 
 .temperature {
+    margin-top: 1em;
+    padding: 0.5em;
     color: rgb(249, 196, 4);
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 600;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .humidity {
     color: rgb(211, 180, 246);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -123,14 +138,16 @@ h2 {
 
 .grid, .grid_daily {
     color: blue;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
 .grid ul, .grid_daily ul {
     display: grid;
     grid-template-columns: 1fr; /* Single column */
-    grid-auto-rows: minmax(70px, auto); 
-    gap: 10px; 
+    grid-auto-rows: minmax(50px, auto); 
+    gap: 7px; 
+    justify-content: left;
+    padding: 0;
 }
 
 .grid li, .grid_daily li {
@@ -139,26 +156,27 @@ h2 {
     align-items: center;
     justify-content: center;
     color: #ffeead;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 1px;
-    width: 30%;
+    width: 60%;
     list-style: none;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    padding: 0.5em;
+    padding: 0.3em 0 0.3em 0.7em;
 }
 
 .grid_daily li {
-    width: auto;
-    justify-content: left;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 1rem;
 }
 
 .temp, .date {
-    margin-right: auto;
+    margin-right: 17px;
 }
 
 .precipitation {
     color:#5908e3;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .temp {
@@ -166,8 +184,8 @@ h2 {
 }
 
 button {
-    height: 2em;
-    width: 4em;
+    height: 1.7em;
+    width: 3.3em;
     border-radius: 5px;
     border: none;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -177,4 +195,164 @@ button {
     background-color: rgb(157, 189, 239);
     border: none;
 }
+
+.footer {
+    padding: 1em;
+    color:#0435a8;
+    font-size: 0.7rem;
+}
+/* =====================================================
+Tablet style */
+
+@media (min-width: 600px) and (max-width: 1200px) {
+    body {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    #logo {
+        padding: 0.2em;
+        font-size: 0.8em;
+    }
+
+    .city {
+        font-size: 1.7rem;
+    }
+
+    .container {
+        height: 33em;
+    }
+
+    #today ul {
+        top: 10em;
+    }
+
+    .temperature {
+        font-size: 4rem;
+    }
+
+    .grid_daily li {
+        font-size: 1.3rem;
+    }
+    
+    .precipitation {
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================================= */
+
+/* Desktop style */
+@media (min-width: 1200px) {
+
+    body {
+        font-size: 1.125rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    #logo {
+        margin: 0.5em 0 0.3em 0.5em;
+        font-size: 1rem;
+        margin-right: auto;
+    }
+
+    .city {
+        margin-right: 6em;
+        font-size: 2rem;
+    }
+
+    .units {
+        margin-right: 2em;
+    }
+
+    .forecast_days ul {
+        padding: 0.5em 0;
+    }
+
+    /* Today section */
+    
+    .container {
+        height: 40em;
+    }
+
+    #today, #hourly, #weekly {
+        margin: 2em 6em;
+    }
+
+    #hourly, #weekly {
+        padding: 5em;
+    }
+
+    #hourly h2, #weekly h2 {
+        padding-top: 1.3em;
+    }
+
+    #today ul {
+        position: absolute;
+        top: 16em;
+        left: 4em;
+        list-style: none;
+    }
+
+    .temperature {
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    .humidity {
+        font-size: 2rem;
+    }
+
+    /* Hourly and daily forecast */
+
+    .grid, .grid_daily {
+        font-size: 2rem;
+    }
+
+    .grid ul, .grid_daily ul {
+        grid-auto-rows: minmax(70px, auto); 
+        gap: 10px; 
+    }
+
+    .grid li, .grid_daily li {
+        font-weight: 800;
+        width: 30%;
+        padding: 1em;
+    }
+
+    .grid_daily li {
+        width: auto;
+        justify-content: left;
+    }
+
+    .temp, .date {
+        margin-right: auto;
+        font-size: 2rem;
+    }
+
+    .precipitation {
+        font-size: 1.5rem;
+    }
+
+    button {
+        height: 2em;
+        width: 4em;
+    }
+
+    .footer {
+        font-size: 1.2rem;
+    }
+}
+
+
 
