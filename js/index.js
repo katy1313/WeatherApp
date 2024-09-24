@@ -1,3 +1,4 @@
+// Adding the footer and the copyright
 const footer = document.querySelector('footer');
 const dailyTemp = document.querySelector('.grid_daily');  
 
@@ -9,7 +10,6 @@ copyright.innerHTML = `\u00A9 Ekaterina Suhr  ${thisYear}`;
 footer.appendChild(copyright);
 
 //Switching between units
-
 let btns = document.querySelectorAll('button');
 for(btn of btns) {
     if (btn.innerHTML === 'Cº') {
@@ -123,7 +123,6 @@ for(btn of btns) {
 }
 
 // Displaying default current temp and the hourly temperature in Fahrenheit
-
 fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&current=temperature_2m,relative_humidity_2m,is_day,precipitation&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=1&models=gfs_seamless")
     .then(response => {
         if(!response.ok) {
@@ -158,7 +157,6 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909
     })     
 
 // Functions
-
 function getDailyForecast(unit) {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=27.907&longitude=-82.6909&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&temperature_unit=${unit}&timezone=America%2FNew_York&models=gfs_seamless`)
     .then(response => {
@@ -190,7 +188,6 @@ function getDailyForecast(unit) {
                     }
                     dailyTemp.innerHTML = ''; // Removes all old list items
                     dailyTemp.appendChild(dailyTempListC);
-        
         })
         .catch(error => {
             console.log(error);
@@ -229,7 +226,6 @@ function getDefaultHourlyTemp(unit) {
 
     hourlyTemp.innerHTML = '';
     hourlyTemp.appendChild(hourlyTempList);
-
     })
         .catch(error => {
         console.log(error);
